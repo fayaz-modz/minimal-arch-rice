@@ -1,0 +1,15 @@
+cursor = '▇'
+
+editor = 'nvim'
+
+theme = "dracula"
+
+env-vars = ["TERM=xterm-256color"]
+
+[fonts]
+family = "FiraCode Nerd Font"
+size = 21
+
+[shell]
+program = "/usr/bin/zsh"
+args = ["-l"]
