@@ -91,9 +91,11 @@ elif [[ $inst != "3" ]]; then
 fi
 
 echo "creating links for .config"
-stow alacritty  backgrounds  kitty  nvim  picom  polybar  rio  rofi  starship  tmux zsh
+stow alacritty  backgrounds  kitty  nvim  picom  polybar \
+  rio  rofi  starship  tmux zsh i3
 
-mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
+mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
+  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
 
 if [ -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
   echo "Neovim Packer is already installed."
