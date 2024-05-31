@@ -65,6 +65,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
+# start browser
+bindsym $mod+b exec sh -c '[ $(command -v google-chrome-stable) ] && google-chrome-stable || firefox'
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
