@@ -5,10 +5,10 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-BLUE=$(tput setaf 4)
-RESET=$(tput sgr0)
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+BLUE="\033[0;34m"
+RESET="\033[0m"
 
 echo "Welcome to Fayaz-Modz Ricing Setup"
 
@@ -23,7 +23,7 @@ if [[ ($inst == "1" || $inst == "2") ]]; then
   echo "Select your distribution: "
   echo " 1. archlinux"
   echo " 2. debian/ubuntu"
-  echo " 3. other"
+  echo " 3. termux"
   read distr
 elif [[ $inst != "3" ]]; then
   echo "unknown option: $($inst)"
@@ -78,12 +78,20 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
   echo "${RESET}"
 
 elif [[ $dist == "3" ]]; then
-  echo "Other Distributions are not yet availible."
-  echo "Install the following packages manually"
-  echo " - for terminal setup only: kitty stow git starship tmux zsh fzf neovim"
-  echo " - for full i3 setup: stow neovim picom i3 kitty polybar feh rofi tmux starhsip zsh git zoxide fzf"
-  echo ""
-  echo "then run this script and select stow (3)"
+  echo "Installing for termux"
+  echo "Updating packages"
+  apt update && apt upgrade && apt update
+  apt install git neovim tmux zsh stow zoxide which fzf
+
+  echo "${BLUE}Trying to install FiraCode Nerd Font"
+  mkdir ~/.termux
+  wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/SemiBold/FiraCodeNerdFontMono-SemiBold.ttf ~/.termux/font.ttf
+
+  echo "Installing starship"
+  curl -sS https://starship.rs/install.sh | sh
+
+  echo "Settting Zsh as default shell"
+  chsh -s zsh
   exit 1
 elif [[ $inst != "3" ]]; then
   echo "unknown option"
@@ -97,17 +105,6 @@ stow alacritty  backgrounds  kitty  nvim  picom  polybar \
 mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
   ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
 
-if [ -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-  echo "Neovim Packer is already installed."
-else
-  echo "Installing Neovim Packer"
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-
-echo "${BLUE}Important for neovim. open neovim to the file .config/nvim/lua/fayaz/packer.lua."
-echo "And source the file using :so and run :PackerInstall to install the neovim dependencies"
-
 if [ -d "~/.tmux/plugins/tpm" ]; then
   echo "Tmux Plugin Manager TPM is already installed."
 else
@@ -117,5 +114,4 @@ fi
 
 echo "${BLUE}Refresh the tmux by using Ctrl+b and then pressing 'I'"
 echo "${GREEN}Installation is complete"
-
 
