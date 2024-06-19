@@ -5,11 +5,6 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
-GREEN="\033[0;32m"
-RED="\033[0;31m"
-BLUE="\033[0;34m"
-RESET="\033[0m"
-
 echo "Welcome to Fayaz-Modz Ricing Setup"
 
 echo "Select type of installation"
@@ -30,6 +25,15 @@ elif [[ $inst != "3" ]]; then
   echo $inst
   exit 1
 fi
+
+if [[ $distr == "3" ]]; then
+  apt update -y && apt upgrade && apt install ncurses-utils
+fi
+  
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
 
 
 if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
@@ -77,22 +81,19 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
   echo "${RED} You need to install noto-fonts and FiraCode Nerd Font manually."
   echo "${RESET}"
 
-elif [[ $dist == "3" ]]; then
+elif [[ $distr == "3" ]]; then
   echo "Installing for termux"
   echo "Updating packages"
   apt update && apt upgrade && apt update
-  apt install git neovim tmux zsh stow zoxide which fzf
+  apt install git neovim tmux zsh stow zoxide which fzf wget starship
 
   echo "${BLUE}Trying to install FiraCode Nerd Font"
   mkdir ~/.termux
-  wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/SemiBold/FiraCodeNerdFontMono-SemiBold.ttf ~/.termux/font.ttf
-
-  echo "Installing starship"
-  curl -sS https://starship.rs/install.sh | sh
+  wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/SemiBold/FiraCodeNerdFontMono-SemiBold.ttf -O ~/.termux/font.ttf
+  wget https://raw.githubusercontent.com/catppuccin/termux/main/themes/catppuccin-macchiato.properties -O ~/.termux/colors.properties
 
   echo "Settting Zsh as default shell"
   chsh -s zsh
-  exit 1
 elif [[ $inst != "3" ]]; then
   echo "unknown option"
   exit 1
@@ -114,4 +115,4 @@ fi
 
 echo "${BLUE}Refresh the tmux by using Ctrl+b and then pressing 'I'"
 echo "${GREEN}Installation is complete"
-
+echo "${RESET}
