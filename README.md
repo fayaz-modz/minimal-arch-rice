@@ -4,6 +4,8 @@ This is the repository which stores all my dotfile.
 
 This was made for arch linux.
 
+## EDIT: Added support for termux
+Termux is supposed to be stable, and fonts and color scheme are added.
 
 ## Setup the dotfiles
 
@@ -19,7 +21,7 @@ cd minimal-arch-rice
 run the setup
 
 ```bash
-sh setup.sh
+bash setup.sh
 ```
 
 
