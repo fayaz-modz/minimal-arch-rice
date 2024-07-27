@@ -100,11 +100,12 @@ elif [[ $inst != "3" ]]; then
 fi
 
 echo "creating links for .config"
-stow alacritty  backgrounds  kitty  nvim  picom  polybar \
-  rio  rofi  starship  tmux zsh i3
 
 mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
   ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
+
+stow alacritty  backgrounds  kitty  nvim  picom  polybar \
+  rio  rofi  starship  tmux zsh i3
 
 if [ -d "~/.tmux/plugins/tpm" ]; then
   echo "Tmux Plugin Manager TPM is already installed."
@@ -115,4 +116,4 @@ fi
 
 echo "${BLUE}Refresh the tmux by using Ctrl+b and then pressing 'I'"
 echo "${GREEN}Installation is complete"
-echo "${RESET}
+echo "${RESET}"
