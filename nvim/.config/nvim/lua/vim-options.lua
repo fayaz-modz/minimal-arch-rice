@@ -9,7 +9,10 @@ vim.g.background = "light"
 vim.opt.swapfile = false
 
 -- set nowrap if wo.wrap doesnt work
-vim.keymap.set('n', '<M-w>', ':set nowrap <cr>')
+vim.keymap.set('n', '<M-w>', ':set nowrap <CR>')
+
+-- cd back
+vim.keymap.set('n', '<leader>,', ':cd ..<CR>')
 
 -- Navigate vim panes better
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')

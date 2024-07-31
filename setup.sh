@@ -54,7 +54,7 @@ if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
 		yay -S stow neovim tmux starship zsh git zoxide
 	else
 		yay -S stow neovim ttf-firacode-nerd noto-fonts noto-fonts-cjk \
-		    picom i3 kitty polybar feh rofi tmux starship zsh git zoxide fzf
+		    picom-ftlabs-git autotiling i3 kitty polybar feh rofi tmux starship zsh git zoxide fzf
 	fi
 
 elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
@@ -66,7 +66,13 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
   if [[ $inst == "2" ]]; then
 	sudo apt install stow tmux starship zsh git zoxide fzf
   else
-  	sudo apt install stow picom i3 kitty polybar feh rofi tmux starship zsh git zoxide
+  	sudo apt install stow i3 kitty polybar feh rofi tmux starship zsh git zoxide
+    echo "${BLUE} you need to install fork of picom for animations"
+    echo "https://github.com/fdev31/picom"
+    echo "${RESET}"
+    echo "${BLUE} you need to install autotiling for best experience"
+    echo "https://github.com/nwg-piotr/autotiling"
+    echo "${RESET}"
   fi
 
   echo "Installing starship: "
@@ -101,8 +107,8 @@ fi
 
 echo "creating links for .config"
 
-mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
-  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
+# mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
+#  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
 
 stow alacritty  backgrounds  kitty  nvim  picom  polybar \
   rio  rofi  starship  tmux zsh i3

@@ -1,0 +1,8 @@
+
+# do not include plugins that are downloaded in tmux
+tmux/.config/tmux/plugins
+
+# lua residual files
+nvim/.config/nvim/.luarc.json
+nvim/.config/nvim/lua/.luarc.json
+
