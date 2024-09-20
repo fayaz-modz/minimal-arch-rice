@@ -61,8 +61,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias vim='nvim'
+alias vi='nvim'
 alias c='clear'
 alias snvim='sudo -E -s nvim'
+alias tmux='tmux -u'
 
 #toggle the swap of ctrl and caps key
 toggle_caps_as_ctrl() {
@@ -79,4 +81,4 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-
+export TERM=xterm-256color
