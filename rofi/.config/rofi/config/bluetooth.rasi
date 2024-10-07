@@ -16,7 +16,7 @@ window {
     text-color:                     @FG;
     border:                         2px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
     width:                          300px;
     anchor:                         center;
     x-offset:                       0;
@@ -31,7 +31,7 @@ prompt {
     text-color: 	                @BG;
     border:                  	    0px 0px 0px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
 }
 
 textbox-prompt-colon {
@@ -54,7 +54,7 @@ entry {
     blink:                          true;
     border:                  	    0px 0px 2px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
     padding:                        8px;
 }
 
@@ -136,7 +136,7 @@ element selected {
     background-color:               @BGA;
     text-color:                     @SEL;
     border:                  		0px 0px 0px 0px;
-    border-radius:                  10px;
+    border-radius:                  16px;
     border-color:                  	@BDR;
 }
 

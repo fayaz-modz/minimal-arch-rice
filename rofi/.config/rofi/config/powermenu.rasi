@@ -19,7 +19,7 @@ window {
     text-color:                     @FG;
     border:                  	    2px;
     border-color:                   @BGA;
-    border-radius:                  10px;
+    border-radius:                  16px;
     width:                          110px;
     x-offset:                       -1%;
     y-offset:                       0;
@@ -33,7 +33,7 @@ prompt {
     text-color: 		            @FG;
     border:                  	    0px 0px 2px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
 }
 
 textbox-prompt-colon {
@@ -56,7 +56,7 @@ entry {
     blink:                          true;
     border:                  	    0px 0px 2px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
     padding:                        8px;
 }
 
@@ -101,7 +101,7 @@ element {
     background-color:               @BG;
     text-color:                     @FG;
     orientation:                    horizontal;
-    border-radius:                  10px;
+    border-radius:                  16px;
     padding:                        20px;
 }
 
@@ -128,7 +128,7 @@ element selected {
     background-color:               @BGA;
     text-color:                     @SEL;
     border:                  	    0px 0px 0px 0px;
-    border-radius:                  10px;
+    border-radius:                  16px;
     border-color:                   @BDR;
 }
 
