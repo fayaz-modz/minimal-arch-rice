@@ -43,7 +43,7 @@ if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
 	else
 		echo "Installing yay"
 		sudo pacman -Sy --needed git base-devel
-		git clone https://aur.archlinux.org/yay-bin.git $HOME
+		git clone https://aur.archlinux.org/yay-bin.git $HOME/yay-bin
 		cd $HOME/yay-bin
 		makepkg -si
 	fi
@@ -54,7 +54,8 @@ if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
 		yay -S stow neovim tmux starship zsh git zoxide
 	else
 		yay -S stow neovim ttf-firacode-nerd noto-fonts noto-fonts-cjk \
-		    picom-ftlabs-git autotiling i3 kitty polybar feh rofi tmux starship zsh git zoxide fzf
+		    picom-ftlabs-git autotiling i3 kitty polybar feh rofi tmux starship zsh git zoxide fzf \
+        xorg-xrandr maim xclip xorg-xsetroot gtk-engine-murrine imagemagick pamixer
 	fi
 
 elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
@@ -110,8 +111,8 @@ echo "creating links for .config"
 # mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
 #  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
 
-stow alacritty  backgrounds  kitty  nvim  picom  polybar \
-  rio  rofi  starship  tmux zsh i3
+stow alacritty bspwm dotfiles gtk kitty picom tmux \
+  backgrounds dunst i3 nvim polybar rofi starship zsh
 
 if [ -d "~/.tmux/plugins/tpm" ]; then
   echo "Tmux Plugin Manager TPM is already installed."
