@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
+require("vim-keymaps")
 require("lazy").setup("plugins")
 
 local function load_local_config()

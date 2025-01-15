@@ -15,6 +15,7 @@ super + Escape
 
 super + shift + r
   ~/.config/bspwm/bspwmrc
+
 #
 # bspwm hotkeys
 #
@@ -65,10 +66,6 @@ super + {_,shift + }{h,j,k,l}
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -123,6 +120,19 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# Custom keys
+#
+super + c
+  xcolor -s
+
+alt + Return
+  eww -c ~/.config/bspwm/eww open --toggle csheet
+
+# Change transparency on focused window
+ctrl + alt + {plus,minus,t}
+	picom-trans {-c -3,-c +3,-c -d}
 
 #
 # System keys

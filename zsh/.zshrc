@@ -82,3 +82,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 export TERM=xterm-256color
+eval "$(~/.local/bin/mise activate zsh)"

@@ -4,7 +4,7 @@ return {
   config = function()
     local neocodeium = require("neocodeium")
     neocodeium.setup()
-    vim.keymap.set("i", "<A-f>", neocodeium.accept)
+    vim.keymap.set("i", "<A-f>", neocodeium.accept, { desc = " Accept (with Neocodeium)" })
   end,
 }
 

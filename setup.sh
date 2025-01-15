@@ -9,7 +9,7 @@ echo "Welcome to Fayaz-Modz Ricing Setup"
 
 echo "Select type of installation"
 echo " 1. Terminal Only"
-echo " 2. Full i3 setup"
+echo " 2. Full bspwm setup"
 echo " 3. stow"
 
 read inst
@@ -54,8 +54,9 @@ if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
 		yay -S stow neovim tmux starship zsh git zoxide
 	else
 		yay -S stow neovim ttf-firacode-nerd noto-fonts noto-fonts-cjk \
-		    picom-ftlabs-git autotiling i3 kitty polybar feh rofi tmux starship zsh git zoxide fzf \
-        xorg-xrandr maim xclip xorg-xsetroot gtk-engine-murrine imagemagick pamixer
+		    picom-ftlabs-git autotiling kitty polybar feh rofi tmux starship zsh git zoxide fzf \
+        	    xorg-xrandr maim xclip xorg-xsetroot gtk-engine-murrine imagemagick pamixer \
+		    bspwm sxhkd
 	fi
 
 elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
@@ -67,7 +68,7 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
   if [[ $inst == "2" ]]; then
 	sudo apt install stow tmux starship zsh git zoxide fzf
   else
-  	sudo apt install stow i3 kitty polybar feh rofi tmux starship zsh git zoxide
+  	sudo apt install stow kitty polybar feh rofi tmux starship zsh git zoxide
     echo "${BLUE} you need to install fork of picom for animations"
     echo "https://github.com/fdev31/picom"
     echo "${RESET}"
@@ -112,7 +113,7 @@ echo "creating links for .config"
 #  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
 
 stow alacritty bspwm dotfiles gtk kitty picom tmux \
-  backgrounds dunst i3 nvim polybar rofi starship zsh
+  backgrounds dunst nvim polybar rofi starship zsh
 
 if [ -d "~/.tmux/plugins/tpm" ]; then
   echo "Tmux Plugin Manager TPM is already installed."
