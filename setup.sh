@@ -56,7 +56,7 @@ if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
 		yay -S stow neovim ttf-firacode-nerd noto-fonts noto-fonts-cjk \
 		    picom-ftlabs-git autotiling kitty polybar feh rofi tmux starship zsh git zoxide fzf \
         	    xorg-xrandr maim xclip xorg-xsetroot gtk-engine-murrine imagemagick pamixer \
-		    bspwm sxhkd
+		    bspwm sxhkd dunst
 	fi
 
 elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then

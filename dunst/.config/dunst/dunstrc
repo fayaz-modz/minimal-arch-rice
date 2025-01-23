@@ -28,8 +28,8 @@
 
   icon_position = left
   max_icon_size= 60
-  sticky_history = no
-  history_length = 6
+  sticky_history = true
+  history_length = 50
   title = Notification
   class = Notification
   corner_radius = 16

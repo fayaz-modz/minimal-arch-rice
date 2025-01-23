@@ -6,6 +6,7 @@ export XDG_CURRENT_DESKTOP='bspwm'
 pidof -q picom || { picom & }
 feh --bg-scale ~/backgrounds/leaves.png &
 ~/.config/polybar/launch.sh
+setxkbmap us
 xmodmap ~/.config/bspwm/scripts/.Xmodmap
 
 # fix cursor
