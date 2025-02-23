@@ -6,6 +6,9 @@
 super + Return
 	kitty && ~/.config/bspwm/scripts/move_to_focus.sh
 
+super + b
+  gtk-launch google-chrome
+
 super + {d,r,p,s}
 	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu,screenshot}
 
@@ -128,6 +131,9 @@ alt + Return
 
 # Change transparency on focused window
 super + alt + {KP_Add,KP_Subtract,t}
+	picom-trans {-c +10,-c -10,-c -d} > ~/test.txt
+
+super + alt + {plus,minus,t}
 	picom-trans {-c +10,-c -10,-c -d} > ~/test.txt
 
 #
