@@ -52,6 +52,9 @@ keymap('v', 'K', ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 -- Formatting
 keymap('n', '<leader>f', vim.lsp.buf.format, { desc = "Format code" })
 
+-- reload file
+keymap("n", "<leader>rr", ":checktime<CR>", { noremap = true, silent = true })
+
 -- Search highlight clear
 keymap('n', '<leader>h', ':nohlsearch<CR>', { desc = "Clear search highlight" })
 
