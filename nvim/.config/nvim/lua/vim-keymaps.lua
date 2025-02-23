@@ -54,3 +54,6 @@ keymap('n', '<leader>f', vim.lsp.buf.format, { desc = "Format code" })
 
 -- Search highlight clear
 keymap('n', '<leader>h', ':nohlsearch<CR>', { desc = "Clear search highlight" })
+
+-- escape using double ;
+keymap('i', ';;', '<ESC>', { desc = "Escape" })
