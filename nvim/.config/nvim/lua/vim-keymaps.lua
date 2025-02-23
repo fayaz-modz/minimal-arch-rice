@@ -19,7 +19,7 @@ keymap('n', '<C-\\>', ':vs<CR>', { desc = "Vertical split" })
 -- Tab navigation
 keymap('n', '<leader>tc', ':tabnew<CR>', { desc = "Open new tab" })
 keymap('n', '<leader>tx', ':tabclose<CR>', { desc = "Close current tab" })
-keymap('n', '<leader>tn', ':tabnew<CR>', { desc = "Open new tab" })
+keymap('n', '<leader>tn', ':tabNext<CR>', { desc = "Next tab" })
 keymap('n', '<leader>tp', ':tabprevious<CR>', { desc = "Previous tab" })
 
 -- Save and quit
