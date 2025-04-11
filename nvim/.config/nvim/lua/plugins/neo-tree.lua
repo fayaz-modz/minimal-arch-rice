@@ -13,13 +13,14 @@ return {
     keymap('n', '<leader>bf', ':Neotree buffers reveal float<CR>', { desc = "Reveal buffers in Neotree (floating)" })
 
     require("neo-tree").setup({
+      popup_border_style = "rounded",
       filesystem = {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = false,
           hide_hidden = false
-        }
-      }
+        },
+      },
     })
   end,
 }

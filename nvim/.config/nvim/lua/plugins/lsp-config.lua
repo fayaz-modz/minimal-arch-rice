@@ -1,53 +1,28 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
     config = function()
       require("mason").setup()
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    opts = {
-      auto_install = true,
-    },
     config = function()
-      require("mason-lspconfig").setup()
-
-      require("mason-lspconfig").setup_handlers {
-        function(server_name)
-          require("lspconfig")[server_name].setup {}
-        end
-      }
+      require("mason-lspconfig").setup({
+        ensure_installed = { "typescript-language-server", "lua_ls" }
+      })
     end,
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
       local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
+      require('mason-lspconfig').setup_handlers({
+        function(server)
+          lspconfig[server].setup({})
+        end,
       })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.dartls.setup({
-        cmd = { "dart", 'language-server', '--protocol=lsp' },
-        capabilities = capabilities
-      })
-
       local keymap = vim.keymap.set
-
       keymap('n', 'K', vim.lsp.buf.hover, { desc = "Show hover information" })
       keymap('n', '<leader>gd', vim.lsp.buf.definition, { desc = "Go to definition" })
       keymap('n', '<leader>gr', vim.lsp.buf.references, { desc = "Go to references" })
@@ -62,5 +37,16 @@ return {
       keymap('n', 'gr', vim.lsp.buf.references, { desc = "Go to references (alternative)" })
       keymap('n', '<leader>k', vim.diagnostic.open_float, { desc = "Open floating diagnostic" })
     end,
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   },
 }
