@@ -9,7 +9,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "typescript-language-server", "lua_ls" }
       })
     end,
   },
