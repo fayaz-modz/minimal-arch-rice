@@ -14,11 +14,15 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "saghen/blink.cmp"
+    },
     config = function()
       local lspconfig = require("lspconfig")
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       require('mason-lspconfig').setup_handlers({
         function(server)
-          lspconfig[server].setup({})
+          lspconfig[server].setup({capabilities = capabilities})
         end,
       })
       local keymap = vim.keymap.set
