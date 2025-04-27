@@ -9,6 +9,9 @@ super + Return
 super + b
   gtk-launch google-chrome
 
+super + n
+  kitty -e nvim
+
 super + {d,r,p,s}
 	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu,screenshot}
 
@@ -119,6 +122,10 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# rotate windows right and left
+super + shift + {n,m}
+  bspc node @/ -R {90,-90}
 
 #
 # Custom keys

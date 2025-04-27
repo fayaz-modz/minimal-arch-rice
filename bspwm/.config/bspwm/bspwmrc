@@ -12,7 +12,7 @@ xmodmap ~/.config/bspwm/scripts/.Xmodmap
 # fix cursor
 xsetroot -cursor_name left_ptr &
 
-pgrep -x sxhkd > /dev/null || sxhkd -c ~/.config/bspwm/sxhkdrc &
+pkill -x sxhkd; sxhkd -c ~/.config/bspwm/sxhkdrc &
 
 for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
     bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
