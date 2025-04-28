@@ -16,11 +16,12 @@ require("vim-keymaps")
 require("lazy").setup("plugins")
 
 local function load_local_config()
-    local local_config_path = vim.fn.getcwd() .. '/.nvim.conf.lua'
+  local local_config_path = vim.fn.getcwd() .. '/.nvim.conf.lua'
+  if vim.fn.filereadable(local_config_path) == 1 then
+    print("loading custom config")
     print(local_config_path)
-    if vim.fn.filereadable(local_config_path) == 1 then
-        dofile(local_config_path)
-    end
+    dofile(local_config_path)
+  end
 end
 
 load_local_config()

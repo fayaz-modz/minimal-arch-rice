@@ -33,8 +33,6 @@ return {
       keymap('n', '<leader>gD', vim.lsp.buf.declaration, { desc = "Go to declaration" })
       keymap('n', '<leader>gi', vim.lsp.buf.implementation, { desc = "Go to implementation" })
       keymap('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Show function signature" })
-      keymap('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = "Add workspace folder" })
-      keymap('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = "Remove workspace folder" })
       keymap('n', '<leader>D', vim.lsp.buf.type_definition, { desc = "Go to type definition" })
       keymap('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Rename symbol" })
       keymap('n', 'gr', vim.lsp.buf.references, { desc = "Go to references (alternative)" })

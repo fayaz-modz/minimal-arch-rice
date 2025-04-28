@@ -8,6 +8,7 @@ vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.g.background = "dark"
 vim.wo.number = true
+vim.opt.autoread = true
 
 -- treesitter
 vim.opt.foldmethod = "expr"
