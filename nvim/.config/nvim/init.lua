@@ -25,3 +25,11 @@ local function load_local_config()
 end
 
 load_local_config()
+
+local helpers_path = vim.fn.stdpath("config") .. "/lua/helpers"
+for _, file in ipairs(vim.fn.readdir(helpers_path)) do
+  if file:sub(-4) == ".lua" then
+    local mod = "helpers." .. file:sub(1, -5)
+    require(mod)
+  end
+end

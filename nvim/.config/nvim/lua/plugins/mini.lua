@@ -4,7 +4,11 @@ return {
     require("mini.pairs").setup()
     require("mini.ai").setup()
     require('mini.bracketed').setup()
-    require('mini.jump2d').setup()
+    require('mini.jump2d').setup({
+      mappings = {
+        start_jumping = '<CR>',
+      },
+    })
     require('mini.surround').setup()
     require("mini.comment").setup()
   end,
