@@ -52,11 +52,14 @@ if [[ $distr == "1" && ($inst == "1" || $inst == "2") ]]; then
 
 	if [[ $inst == "1" ]]; then
 		yay -S stow neovim tmux starship zsh git zoxide
+    stow --adopt neovim tmux starship zsh bat
 	else
 		yay -S stow neovim ttf-firacode-nerd noto-fonts noto-fonts-cjk \
 		    picom-ftlabs-git autotiling kitty polybar feh rofi tmux starship zsh git zoxide fzf \
         	    xorg-xrandr maim xclip xorg-xsetroot gtk-engine-murrine imagemagick pamixer \
 		    bspwm sxhkd dunst
+    stow --adopt alacritty bspwm dotfiles gtk kitty picom tmux \
+        backgrounds dunst nvim polybar rofi starship zsh bat
 	fi
 
 elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
@@ -67,6 +70,7 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
 
   if [[ $inst == "2" ]]; then
 	sudo apt install stow tmux starship zsh git zoxide fzf
+  stow --adopt neovim tmux starship zsh bat
   else
   	sudo apt install stow kitty polybar feh rofi tmux starship zsh git zoxide
     echo "${BLUE} you need to install fork of picom for animations"
@@ -75,6 +79,8 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
     echo "${BLUE} you need to install autotiling for best experience"
     echo "https://github.com/nwg-piotr/autotiling"
     echo "${RESET}"
+    stow --adopt alacritty bspwm dotfiles gtk kitty picom tmux \
+        backgrounds dunst nvim polybar rofi starship zsh bat
   fi
 
   echo "Installing starship: "
@@ -86,8 +92,7 @@ elif [[ $distr == "2" && ($inst == "1" || $inst == "2") ]]; then
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
   sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
 
-  echo "${RED} You need to install noto-fonts and FiraCode Nerd Font manually."
-  echo "${RESET}"
+  echo "${RED} You need to install noto-fonts and FiraCode Nerd Font manually.${RESET}"
 
 elif [[ $distr == "3" ]]; then
   echo "Installing for termux"
@@ -95,24 +100,20 @@ elif [[ $distr == "3" ]]; then
   apt update && apt upgrade && apt update
   apt install git neovim tmux zsh stow zoxide which fzf wget starship
 
-  echo "${BLUE}Trying to install FiraCode Nerd Font"
+  echo "${BLUE}Trying to install FiraCode Nerd Font${RESET}"
   mkdir ~/.termux
   wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/SemiBold/FiraCodeNerdFontMono-SemiBold.ttf -O ~/.termux/font.ttf
   wget https://raw.githubusercontent.com/catppuccin/termux/main/themes/catppuccin-macchiato.properties -O ~/.termux/colors.properties
 
   echo "Settting Zsh as default shell"
   chsh -s zsh
+  stow --adopt stow tmux starship zsh zoxide
 elif [[ $inst != "3" ]]; then
   echo "unknown option"
   exit 1
 fi
 
-echo "creating links for .config"
-
-# mkdir -p ~/.config/alacritty  backgrounds  ~/.config/kitty \
-#  ~/.config/nvim  ~/.config/picom  ~/.config/polybar  ~/.config/rio  ~/.config/rofi
-
-stow alacritty bspwm dotfiles gtk kitty picom tmux \
+stow --adopt alacritty bspwm dotfiles gtk kitty picom tmux \
   backgrounds dunst nvim polybar rofi starship zsh
 
 if [ -d "~/.tmux/plugins/tpm" ]; then

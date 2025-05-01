@@ -1,5 +1,6 @@
 format = """
 $username\
+$python\
 $hostname\
 $directory\
 $git_branch\

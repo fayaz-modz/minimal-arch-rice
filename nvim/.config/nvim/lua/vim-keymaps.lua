@@ -1,8 +1,5 @@
 local keymap = vim.keymap.set
 
--- Wrapping toggle
-keymap('n', '<M-w>', ':set nowrap<CR>', { desc = "Toggle line wrapping" })
-
 -- Change directory
 keymap('n', '<leader>,', ':cd ..<CR>', { desc = "Change to parent directory" })
 
@@ -27,6 +24,7 @@ keymap('n', '<leader>w', ':w<CR>', { desc = "Save file" })
 keymap('n', '<leader>q', ':q<CR>', { desc = "Quit file" })
 keymap('v', '<leader>w', ':w<CR>', { desc = "Save file" })
 keymap('v', '<leader>q', ':q<CR>', { desc = "Quit file" })
+keymap('i', '<M-w>', '<C-o>:w<CR>', {desc = "Save file"})
 
 -- General navigation
 keymap('n', 'H', '8k', { desc = "Move 8 lines up" })

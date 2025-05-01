@@ -1,0 +1,6 @@
+theme = "catppuccin_mocha"
+
+[keys.normal.space]
+w = ":w" # write file
+r = ':config-reload'
+q = ":q"

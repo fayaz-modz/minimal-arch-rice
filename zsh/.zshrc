@@ -80,6 +80,11 @@ eval "$(fzf --zsh)"
 # setup zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
+# setup bat
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+alias ff='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+alias fnvim='ff --bind "enter:execute(nvim {})"'
+
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 export TERM=xterm-256color
 eval "$(~/.local/bin/mise activate zsh)"
