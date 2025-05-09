@@ -36,5 +36,5 @@ return {
     { "<leader>z", function() Snacks.zen() end,           desc = "zen mode" },
     { "<leader>h", function() Snacks.notifier.hide() end, desc = "zen mode" },
     { "<leader>/", function() Snacks.terminal() end,      desc = "terminal toggle" },
-  }
+  },
 }

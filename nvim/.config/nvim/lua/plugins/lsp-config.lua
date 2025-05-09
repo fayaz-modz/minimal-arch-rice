@@ -1,16 +1,16 @@
 return {
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
+    opts = {
+      ui = {
+        border = "rounded",
+        backdrop = 60,
+      }
+    }
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-      })
-    end,
+    opts = {}
   },
   {
     "neovim/nvim-lspconfig",
