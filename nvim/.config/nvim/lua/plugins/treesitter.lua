@@ -2,6 +2,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     config = function()
       local config = require("nvim-treesitter.configs")
       config.setup({
@@ -11,10 +15,10 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "gnn",
+            init_selection = "<C-space>",
             node_incremental = "<TAB>",
             scope_incremental = "grc",
-            node_decremental = "<S-TAB>",
+            node_decremental = "<bs>",
           },
         }
       })
