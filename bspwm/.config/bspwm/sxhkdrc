@@ -9,8 +9,11 @@ super + Return
 super + b
   gtk-launch google-chrome
 
+super + z
+  gtk-launch zen
+
 super + n
-  kitty -e nvim
+  kitty -e nvim && ~/.config/bspwm/scripts/move_to_focus.sh
 
 super + {d,r,p,s}
 	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu,screenshot}

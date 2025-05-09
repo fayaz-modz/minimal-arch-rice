@@ -3,6 +3,8 @@
 # Get the window ID of the focused node
 focused_window=$(bspc query -N -n focused)
 
+[ -z "$focused_window" ] && exit 0
+
 # Get the geometry of the focused window
 geometry=$(xwininfo -id "$focused_window" | grep 'Absolute upper-left X\|Absolute upper-left Y\|Width\|Height')
 
