@@ -1,11 +1,18 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    'Exafunction/codeium.nvim'
+  },
 
   version = '1.*',
   opts = {
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'default' },
+    keymap = {
+      preset = 'default',
+      ['<cr>'] = { 'select_and_accept', 'fallback' }
+    },
+
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -19,7 +26,10 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
+      providers = {
+        codeium = { name = 'codeium', module = 'codeium.blink', async = true },
+      }
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
