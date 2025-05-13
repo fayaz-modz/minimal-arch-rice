@@ -57,5 +57,5 @@ keymap("n", "<leader>rr", ":checktime<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>h', ':nohlsearch<CR>', { desc = "Clear search highlight" })
 
 -- escape using double ;
-keymap('i', ';d', '<ESC>', { desc = "Escape" })
-keymap('i', ';<leader>', ';<ESC>', { desc = "Escape" })
+keymap('i', ';;', '<ESC>', { desc = "Escape" })
+keymap('i', ';<leader>', '; ', { desc = "Escape" })

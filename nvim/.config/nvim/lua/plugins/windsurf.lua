@@ -19,7 +19,7 @@ return {
           accept = "<Tab>",
           accept_word = "<M-e>",
           accept_line = "<M-l>",
-          -- Clear the virtual text. 
+          -- Clear the virtual text.
           clear = false,
           next = "<M-]>",
           -- Cycle to the previous completion.
