@@ -1,7 +1,6 @@
 return {
   'saghen/blink.cmp',
   dependencies = {
-    'rafamadriz/friendly-snippets',
     'Exafunction/codeium.nvim'
   },
 
@@ -10,7 +9,7 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       preset = 'default',
-      ['<cr>'] = { 'select_and_accept', 'fallback' }
+      ['<c-y>'] = { 'select_and_accept', 'fallback' }
     },
 
 

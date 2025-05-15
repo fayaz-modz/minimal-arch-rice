@@ -22,4 +22,4 @@ function EvalAndYank()
   end)
 end
 
-vim.keymap.set('n', "<leader>m", EvalAndYank)
+vim.keymap.set('n', "<leader>mm", EvalAndYank, { desc = "math and yank" })

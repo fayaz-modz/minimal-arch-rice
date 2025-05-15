@@ -1,21 +1,41 @@
--- General Settings
+vim.cmd("let g:netrw_banner = 0")
+
+vim.opt.guicursor = ""
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.autoread = true
+
 vim.opt.termguicolors = true
 vim.g.background = "dark"
+vim.opt.colorcolumn = "70"
 vim.wo.number = true
-vim.opt.autoread = true
+vim.wo.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.hlsearch = true
+
+vim.opt.isfname:append("@-@")
+
+vim.opt.mouse = "a"
+vim.g.editorconfig = true
+
+-- split
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
--- leader
-vim.g.mapleader = " "
 
 -- Highlight Cursor Groups
 vim.cmd [[
@@ -34,5 +54,7 @@ vim.opt.guicursor = table.concat({
 }, ",")
 
 -- Search
+vim.opt.incsearch = true
+vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

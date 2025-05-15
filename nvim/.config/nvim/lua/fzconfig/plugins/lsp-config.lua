@@ -12,6 +12,8 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonUpdate" },
+    priority = 0,
     opts = {
       ui = {
         border = "rounded",
