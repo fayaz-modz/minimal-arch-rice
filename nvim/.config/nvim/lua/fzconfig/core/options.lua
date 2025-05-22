@@ -15,7 +15,7 @@ vim.opt.autoread = true
 
 vim.opt.termguicolors = true
 vim.g.background = "dark"
-vim.opt.colorcolumn = "70"
+vim.opt.colorcolumn = "80"
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.cursorline = true

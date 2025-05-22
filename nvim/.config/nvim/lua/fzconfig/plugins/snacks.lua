@@ -17,8 +17,8 @@ return {
                 left = { "mark", "sign" }, -- priority of signs on the left (high to low)
                 right = { "fold", "git" }, -- priority of signs on the right (high to low)
                 folds = {
-                    open = true,       -- show open fold icons
-                    git_hl = true,     -- use Git Signs hl for fold icons
+                    open = true,           -- show open fold icons
+                    git_hl = true,         -- use Git Signs hl for fold icons
                 },
                 git = {
                     -- patterns to match Git signs
@@ -28,8 +28,8 @@ return {
             },
             toggle = {
                 map = vim.keymap.set, -- keymap.set function to use
-                which_key = true, -- integrate with which-key to show enabled/disabled icons and colors
-                notify = true,    -- show a notification when toggling
+                which_key = true,     -- integrate with which-key to show enabled/disabled icons and colors
+                notify = true,        -- show a notification when toggling
                 -- icons for enabled/disabled states
                 icon = {
                     enabled = " ",
@@ -100,17 +100,17 @@ return {
                 end,
                 desc = "file explorer"
             },
-            { "<C-p>f",           function() Snacks.picker.files() end,                 { desc = "Files" } },
-            { "<leader><leader>", function() Snacks.picker.recent() end,                { desc = "Recent files" } },
-            { '<C-p>gp',          function() Snacks.picker.grep() end,                  { desc = "Grep" } },
-            { '<C-p>b',           function() Snacks.picker.buffers() end,               { desc = "Buffers" } },
-            { '<C-p>h',           function() Snacks.picker.help() end,                  { desc = "Help" } },
-            { '<C-p>gf',          function() Snacks.picker.git_files() end,             { desc = "Git files" } },
-            { '<C-p>d',           function() Snacks.picker.diagnostics() end,           { desc = "Diagnostics" } },
-            { '<C-p>cm',          function() Snacks.picker.commands() end,              { desc = "Commands" } },
-            { '<C-p>s',           function() Snacks.picker.lsp_symbols() end,           { desc = "Doc symbols" } },
-            { '<C-p>w',           function() Snacks.picker.lsp_workspace_symbols() end, { desc = "WS symbols" } },
-            { '<C-p>r',           function() Snacks.picker.lsp_references() end,        { desc = "References" } },
+            { "<C-p>f",           function() Snacks.picker.files() end,                 desc = "Files" },
+            { "<leader><leader>", function() Snacks.picker.recent() end,                desc = "Recent files" },
+            { '<C-p>gp',          function() Snacks.picker.grep() end,                  desc = "Grep" },
+            { '<C-p>b',           function() Snacks.picker.buffers() end,               desc = "Buffers" },
+            { '<C-p>h',           function() Snacks.picker.help() end,                  desc = "Help" },
+            { '<C-p>gf',          function() Snacks.picker.git_files() end,             desc = "Git files" },
+            { '<C-p>d',           function() Snacks.picker.diagnostics() end,           desc = "Diagnostics" },
+            { '<C-p>cm',          function() Snacks.picker.commands() end,              desc = "Commands" },
+            { '<C-p>s',           function() Snacks.picker.lsp_symbols() end,           desc = "Doc symbols" },
+            { '<C-p>w',           function() Snacks.picker.lsp_workspace_symbols() end, desc = "WS symbols" },
+            { '<C-p>r',           function() Snacks.picker.lsp_references() end,        desc = "References" },
         },
     },
     {
