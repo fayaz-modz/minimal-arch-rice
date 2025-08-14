@@ -1,0 +1,86 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    esc
+    IntlBackslash
+    tab            q    w    e    r    t    y    u    i    o    p    [    ]
+    caps           a    s    d    f    g    h    j    k    l    ;    '
+    lsft           z    x    c    v    b    n    m    ,    .    /    rsft
+    lctl           lmet lalt          spc             ralt rctl
+)
+
+(defvar
+    ;; Note: consider using different time values for your different fingers.
+    ;; For example, your pinkies might be slower to release keys and index
+    ;; fingers faster.
+    tap-time 200
+    hold-time 200 
+    hold-time-slow 300 
+)
+
+(defalias
+    ;; exc  (unicode "!")
+    ;; at   (unicode "@")
+    ;; hsh  (unicode "#")
+    ;; dlr  (unicode "$")
+    ;; per  (unicode "%")
+    ;; crt  (unicode "^")
+    ;; and  (unicode "&")
+    ;; ast  (unicode "*")
+
+    exc  S-1
+    at   S-2
+    hsh  S-3
+    dlr  S-4
+    per  S-5
+    crt  S-6
+    and  S-7
+    ast  S-8
+)
+
+(defalias
+    meh  (multi ctl alt sft)
+    tmeh (tap-hold $tap-time $hold-time spc @meh)
+
+    l_num (layer-toggle sys1)
+    num   (layer-switch numb)
+    bse   (layer-switch base)
+
+    f   (tap-hold $tap-time $hold-time f   (layer-while-held numb))
+    spc (tap-hold $tap-time $hold-time spc (layer-while-held sys1))
+
+    caps (tap-hold-press $tap-time $hold-time caps lctl)
+    ralt (tap-hold-press $tap-time $hold-time @num @l_num)
+    lctl (tap-hold-press $tap-time $hold-time esc  lctl)
+)
+
+
+ (deflayer base
+    esc
+    IntlBackslash
+    tab            q     w     e     r     t     y     u     i     o     p     [    ]
+    @caps          a     s     d     @f    g     h     j     k     l     ;     '
+    lsft           z     x     c     v     b     n     m     ,     .     /     rsft
+    @lctl          lmet  lalt          @spc            @ralt rctl
+)
+
+(deflayer numb
+    esc
+    IntlBackslash
+    tab            q     w     e     r     t     y     7     8     9     bspc  [    ]
+    @caps          a     s     d     f     g     h     4     5     6     ;     '
+    lsft           z     x     c     v     b     n     1     2     3     /     rsft
+    @lctl          lmet  lalt           spc            @bse rctl
+)
+
+(deflayer sys1
+    esc
+    IntlBackslash
+    tab            @exc  @at   @dlr  @hsh  @per  y     u     i     del   bspc  [    ]
+    @caps          @and  @dlr  @dlr  XX    g     left  down  up    right ;     '
+    lsft           z     @ast  @crt  @crt  b     n     m     ,     .     /      rsft
+    @lctl          lmet  lalt           @spc           @ralt rctl
+)
+

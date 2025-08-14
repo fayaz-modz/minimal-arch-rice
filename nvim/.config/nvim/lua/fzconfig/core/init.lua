@@ -1,5 +1,6 @@
 require("fzconfig.core.options")
 require("fzconfig.core.keymaps")
+require("fzconfig.core.lsp")
 
 local function load_local_config()
   local local_config_path = vim.fn.getcwd() .. '/.nvim.conf.lua'

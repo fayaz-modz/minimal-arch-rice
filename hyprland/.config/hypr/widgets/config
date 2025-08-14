@@ -1,0 +1,8 @@
+[command.poweroff]
+command = "systemctl poweroff"
+
+[command.suspend]
+command = "systemctl suspend"
+
+[command.logout]
+command = "loginctl terminate-user $USER"

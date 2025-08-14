@@ -1,0 +1,18 @@
+(defwindow powermenu
+  :geometry (geometry
+    :x "2%"
+    :y "0%"
+    :anchor "right center")
+  :monitor 0
+  (system-controls)
+)
+
+
+(defwidget system-controls []
+    (box :class "system-controls" :orientation "vertical" :halign "center"
+        :width 90
+        (button :class "suspend" :onclick "systemctl suspend" "")
+        (button :class "poweroff" :onclick "systemctl poweroff" "󰤆")
+        (button :class "logout" :onclick "hyprctl dispatch exit" "󰍃")
+    )
+)

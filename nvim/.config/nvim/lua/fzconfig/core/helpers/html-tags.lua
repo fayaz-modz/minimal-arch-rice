@@ -1,0 +1,27 @@
+-- vim.keymap.set("i", "<CR>", function()
+--   local ok, ts_utils = pcall(require, "nvim-treesitter.ts_utils")
+--   local use_treesitter = false
+--
+--   if ok then
+--     local node = ts_utils.get_node_at_cursor()
+--     while node do
+--       local type = node:type()
+--       if type:match("element") or type:match("start_tag") or type:match("text") or type:match("tag_name") or type:match("jsx") or type:match("html") then
+--         use_treesitter = true
+--         break
+--       end
+--       node = node:parent()
+--     end
+--   end
+--
+--   local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+--   local line = vim.api.nvim_get_current_line()
+--   local prev_char = col > 0 and line:sub(col, col) or nil
+--   local next_char = line:sub(col + 1, col + 1)
+--
+--   if use_treesitter and prev_char == ">" and next_char == "<" then
+--     return vim.api.nvim_replace_termcodes("<CR><C-o>O", true, true, true)
+--   else
+--     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", true)
+--   end
+-- end, { noremap = true, expr = true })

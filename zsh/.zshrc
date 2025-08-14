@@ -21,9 +21,6 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Keybindings
@@ -69,6 +66,50 @@ alias tmux='tmux -u'
 #toggle the swap of ctrl and caps key
 toggle_caps_as_ctrl() {
     setxkbmap -option "ctrl:swapcaps"   # Swap Caps Lock and Control
+}
+
+# easy ip tools
+
+myroute() {
+    ip route | grep '^default' | awk '{print $3}'
+}
+
+myip() {
+    if [[ "$1" == "-4" || "$1" == "-6" ]]; then
+        ver="$1"
+        shift
+    else
+        ver="-4"
+    fi
+
+    if [ -z "$1" ]; then
+        dev=$(ip route get 1 | awk '{for(i=1;i<=NF;i++) if($i=="dev") print $(i+1); exit}')
+    else
+        dev="$1"
+    fi
+
+    [ -z "$dev" ] && return
+
+    if [ "$ver" = "-4" ]; then
+        ip -4 addr show "$dev" | awk '/inet / {print $2}' | cut -d/ -f1
+    else
+        ip -6 addr show "$dev" | awk '/inet6 [^f][^e]/{print $2}' | cut -d/ -f1
+    fi
+}
+
+mypubip() {
+    if [[ "$1" == "-4" || "$1" == "-6" ]]; then
+        ver="$1"
+        shift
+    else
+        ver="-4"
+    fi
+
+    if [ "$ver" = "-4" ]; then
+        curl -4 ifconfig.co
+    else
+        curl -6 ifconfig.co
+    fi
 }
 
 # starship for zsh
