@@ -44,12 +44,12 @@
     meh  (multi ctl alt sft)
     tmeh (tap-hold $tap-time $hold-time spc @meh)
 
-    l_num (layer-toggle sys1)
+    l_num (layer-toggle symb)
     num   (layer-switch numb)
     bse   (layer-switch base)
 
     f   (tap-hold $tap-time $hold-time f   (layer-while-held numb))
-    spc (tap-hold $tap-time $hold-time spc (layer-while-held sys1))
+    spc (tap-hold $tap-time $hold-time spc (layer-while-held symb))
 
     caps (tap-hold-press $tap-time $hold-time caps lctl)
     ralt (tap-hold-press $tap-time $hold-time @num @l_num)
@@ -75,7 +75,7 @@
     @lctl          lmet  lalt           spc            @bse rctl
 )
 
-(deflayer sys1
+(deflayer symb
     esc
     IntlBackslash
     tab            @exc  @at   @dlr  @hsh  @per  y     u     i     del   bspc  [    ]

@@ -2,8 +2,10 @@
 
 notify-send 'refreshing env'
 
-hyprctl reload
-pkill waybar
+pid=$(pgrep -f capslock.sh)
+if [[ -n "$pid" ]]; then
+    kill "$pid"
+fi
 
-waybar &
-~/.config/hypr/scripts/remaps.sh &
+~/.config/hypr/scripts/kbd_wbar.sh &
+~/.config/hypr/scripts/capslock.sh &

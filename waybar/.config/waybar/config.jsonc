@@ -81,7 +81,7 @@
         "format-icons": {
             "base": "󰌏",
             "numb": "󰘜",
-            "sys1": ""
+            "symb": ""
         },
         "signal": 5,
         "hide-empty-text": true
