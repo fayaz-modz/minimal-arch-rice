@@ -5,7 +5,6 @@ return {
     "folke/todo-comments.nvim",
   },
   config = function()
-
     require("lualine").setup({
       options = {
         component_separators = {
@@ -63,14 +62,14 @@ return {
         },
         lualine_z = { "location" },
       },
-      tabline = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-      },
+      -- tabline = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {},
+      --   lualine_x = {},
+      --   lualine_y = {},
+      --   lualine_z = {}
+      -- },
     })
   end
 }

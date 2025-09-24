@@ -129,3 +129,6 @@ alias fnvim='ff --bind "enter:execute(nvim {})"'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 export TERM=xterm-256color
 eval "$(~/.local/bin/mise activate zsh)"
+
+# bun completions
+[ -s "/home/fayaz/.bun/_bun" ] && source "/home/fayaz/.bun/_bun"

@@ -69,7 +69,7 @@
             "default": [
                 "",
                 "",
-                " "
+                ""
             ]
         },
         "on-click": "pavucontrol"
@@ -81,7 +81,9 @@
         "format-icons": {
             "base": "󰌏",
             "numb": "󰘜",
-            "symb": ""
+            "symb": "",
+            "mouse": "",
+            "ctrls": "󰭩"
         },
         "signal": 5,
         "hide-empty-text": true

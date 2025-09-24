@@ -7,13 +7,13 @@ return {
   name = "catppuccin",
   priority = 1000,
   config = function()
-    vim.cmd(":TransparentEnable")
+    -- vim.cmd(":TransparentEnable")
     require("catppuccin").setup({
-      transparent_background = true,
+      transparent_background = false,
     })
     vim.cmd.colorscheme "catppuccin-mocha"
 
-    IsTransparent = true
+    IsTransparent = false
 
     ToggleTransparent = function()
       if (IsTransparent)
