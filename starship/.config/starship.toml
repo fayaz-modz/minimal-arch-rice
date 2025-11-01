@@ -1,7 +1,7 @@
 format = """
 $username\
-$python\
 $hostname\
+$python\
 $directory\
 $git_branch\
 $git_state\
@@ -15,10 +15,16 @@ $line_break\
 $character"""
 
 [username]
-format = '[$user]($style) '
+# user@hostname
+format = '[$user]($style)'
 style_user = "bold green"
 disabled = false
 show_always = true
+
+[hostname]
+ssh_only = false
+format = '[@$hostname](green bold) '
+disabled = false
 
 [dart]
 format = '[$symbol($version )]($style)'

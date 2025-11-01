@@ -132,3 +132,7 @@ eval "$(~/.local/bin/mise activate zsh)"
 
 # bun completions
 [ -s "/home/fayaz/.bun/_bun" ] && source "/home/fayaz/.bun/_bun"
+
+# Turso
+export PATH="$PATH:/home/fayaz/.turso"
+autoload -U compinit; compinit
