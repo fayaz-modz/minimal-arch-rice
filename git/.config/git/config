@@ -1,0 +1,63 @@
+[user]
+    name = "Fayaz Mohammad"
+    email = "mdfayaz9963@gmail.com"
+
+[core]
+    editor = "nvim"
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+[init]
+    defaultBranch = main
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+
+[push]
+    autoSetupRemote = true
+    default = current
+    followTags = true
+
+[pull]
+    default = current
+    rebase = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+
+[pager]
+    diff = diff-so-fancy | $PAGER
+
+[diff-so-fancy]
+    markEmptyLines = false
+
+[color "diff"]
+    meta = black old
+    frag = magenta
+    context = white
+    whitespace = yellow reverse
+    old = red
+
+[interactive]
+    diffFilter = diff-so-fancy --patch
+    singlekey = true
+
+[advice]
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints = true
+
+[url "git@github.com:fayaz-modz/"]
+    insteadOf = 'fz:'
+
+[url "git@github.com:"]
+    insteadOf = 'gh:'

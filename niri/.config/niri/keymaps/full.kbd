@@ -1,0 +1,102 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    esc
+    tab       q    w    e    r    t    y    u    i    o    p    [    ]
+    caps      a    s    d    f    g    h    j    k    l    ;    '    enter
+    lsft      z    x    c    v    b    n    m    ,    .    /    rsft
+    lctl      lmet lalt          spc             ralt rctl
+)
+
+(defvar
+    ;; Note: consider using different time values for your different fingers.
+    ;; For example, your pinkies might be slower to release keys and index
+    ;; fingers faster.
+    tap-time 200
+    hold-time 200 
+    hold-time-slow 300 
+)
+
+(defalias
+    !  S-1
+    @  S-2
+    #  S-3
+    $  S-4
+    %  S-5
+    ^  S-6
+    &  S-7
+    *  S-8
+)
+
+(defalias
+    meh   (multi ctl alt sft)
+    tmeh  (tap-hold $tap-time $hold-time spc @meh)
+
+    l_num (layer-toggle symb)
+    num   (layer-switch numb)
+    bse   (layer-switch base)
+
+    f     (tap-hold $tap-time $hold-time f   (layer-while-held numb))
+    d     (tap-hold $tap-time $hold-time d   (layer-while-held mouse))
+    c     (tap-hold $tap-time $hold-time c   (layer-while-held ctrls))
+    spc   (tap-hold $tap-time $hold-time spc (layer-while-held symb))
+
+    caps  (tap-hold-press $tap-time $hold-time caps lctl)
+    ralt  (tap-hold-press $tap-time $hold-time @num @l_num)
+    lctl  (tap-hold-press $tap-time $hold-time esc  lctl)
+)
+
+(deflayer base
+    esc
+    tab       q     w     e     r     t     y     u     i     o     p     [    ]
+    @caps     a     s     @d    @f    g     h     j     k     l     ;     '    enter
+    lsft      z     x     @c    v     b     n     m     ,     .     /     rsft
+    @lctl     lmet  lalt           @spc           @ralt rctl
+)
+
+(deflayer numb
+    esc
+    tab       q     w     e     r     t     y     7     8     9     =     [    ]
+    @caps     a     s     d     f     g     h     4     5     6     +     '    enter
+    lsft      z     x     c     v     b     0     1     2     3     /     rsft
+    @lctl     lmet  lalt           @spc           @bse rctl
+)
+
+(deflayer symb
+    esc
+    tab       @!    @@    @#    @$    @%    y     u     i     del   bspc  [    ]
+    @caps     @&    @*    @$    @#    g     left  down  up    right ;     '    enter
+    lsft      z     x     @^    @^    b     n     m     ,     .     @%      rsft
+    @lctl     lmet  lalt           @spc           @ralt rctl
+)
+
+(deflayer mouse
+    esc
+    tab       q     w     e     r     t     y     u     i     o     p     [    ]
+    @caps     mlft  mrgt  @d    @f    g     @ml   @md   @mu   @mr   ;     '    mltp
+    lsft      z     x     c     v     @mwl  @mwd  @mwu  @mwr  .     /     rsft
+    @lctl     lmet  lalt           @spc           @ralt rctl
+)
+
+(deflayer ctrls
+    esc
+    tab       q     w     e     r     t     y     u     i     o     p     [    ]
+    @caps     a     s     @d    @f    g     🔅    🔉    🔊    🔆    ;     '    enter
+    lsft      z     x     c     v     b     n     🔇     ,     .     /     rsft
+    @lctl     lmet  lalt           @spc           @ralt rctl
+)
+
+(defalias
+  ml  (🖱accel← 4 450 1 5)    
+  mr  (🖱accel→ 4 450 1 5)
+  mu  (🖱accel↑ 4 450 1 5)
+  md  (🖱accel↓ 4 450 1 5)
+
+  mwu (🖱☸↑ 100 80)
+  mwd (🖱☸↓ 100 80)
+  mwl (🖱☸← 100 80)
+  mwr (🖱☸→ 100 80)
+)
+

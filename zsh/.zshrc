@@ -1,4 +1,3 @@
-
 # directory for zinit and its plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -62,6 +61,13 @@ alias vi='nvim'
 alias c='clear'
 alias snvim='sudo -E -s nvim'
 alias tmux='tmux -u'
+alias gits='git status --short'
+alias gitd='git diff'
+alias gita='git add'
+alias gitc='git commit'
+alias gitl='git log --all --graph --oneline'
+alias gitcl='git clone'
+alias gitu='git pull'
 
 #toggle the swap of ctrl and caps key
 toggle_caps_as_ctrl() {
@@ -127,7 +133,7 @@ alias ff='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}
 alias fnvim='ff --bind "enter:execute(nvim {})"'
 
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-export TERM=xterm-256color
+# export TERM=xterm-256color
 eval "$(~/.local/bin/mise activate zsh)"
 
 # bun completions
@@ -136,3 +142,13 @@ eval "$(~/.local/bin/mise activate zsh)"
 # Turso
 export PATH="$PATH:/home/fayaz/.turso"
 autoload -U compinit; compinit
+fpath=(~/.zsh/completions $fpath)
+
+precmd() {
+  echo -ne '\e[2 q'
+}
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

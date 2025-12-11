@@ -1,12 +1,17 @@
 {
+    "layer": "top",
     "position": "bottom",
-    "width": 1280,
+    // "width": 1280,
+    "height": 36,
     "margin-bottom": 12,
+    "margin-left": 12,
+    "margin-right": 12,
+    "output": "HDMI-A-1",
     "modules-left": [
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
+        "window"
     ],
     "modules-right": [
         "network",
@@ -15,19 +20,14 @@
         "clock",
         "custom/kanata-layer"
     ],
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "format": "{icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
-        },
-        "persistent-workspaces": {
-            "*": 5, // 5 workspaces by default on every monitor
-            "HDMI-A-1": 3 // but only three on HDMI-A-1
-        }
+        "disable-scroll": false,
+        "all-outputs": true
+    },
+    "window": {
+        "format": "{}",
+        "max-length": 60
     },
     "clock": {
         "interval": 1,
