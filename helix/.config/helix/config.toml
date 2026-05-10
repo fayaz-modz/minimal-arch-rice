@@ -4,3 +4,4 @@ theme = "catppuccin_mocha"
 w = ":w" # write file
 r = ':config-reload'
 q = ":q"
+e = ":sh tmux display-popup -E -w 80%% -h 80%% -d '#{pane_current_path}' 'tmux send-keys -t \"'$TMUX_PANE'\" \":e \" \"$(hetree)\" Enter'"

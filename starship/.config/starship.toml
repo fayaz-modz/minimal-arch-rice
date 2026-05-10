@@ -72,16 +72,8 @@ disabled = false
 format = "[$duration]($style)"
 style = "yellow"
 
-[memory_usage]
-symbol = " "
-
 [rust]
 symbol = " "
-
-[time]
-disabled = false
-style = "bold blue"
-format = "[$time]($style)"
 
 [custom.stunnel]
 when = "ps aux | grep stunnel | grep -v grep"

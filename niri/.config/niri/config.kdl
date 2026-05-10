@@ -293,7 +293,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -352,7 +352,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
@@ -370,7 +370,7 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
 
-    Mod+Return hotkey-overlay-title="Open terminal: Ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open terminal: Ghostty" { spawn "wezterm"; }
     Mod+Shift+D { spawn "dolphin"; }
     Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --show drun"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
