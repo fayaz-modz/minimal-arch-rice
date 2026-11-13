@@ -372,7 +372,7 @@ binds {
 
     Mod+Return hotkey-overlay-title="Open terminal: Wezterm" { spawn "wezterm" "start" "--always-new-process"; }
     Mod+D { spawn-sh "vicinae open"; }
-    Mod+G hotkey-overlay-title="Dictation: toggle" { spawn-sh "printf 't' | socat - UNIX-CONNECT:/tmp/phemic_ctl.sock 2>/dev/null; whisrs toggle"; }
+    Mod+G hotkey-overlay-title="Dictation: toggle" { spawn "voxtype" "record" "toggle"; }
     // Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --show drun"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 

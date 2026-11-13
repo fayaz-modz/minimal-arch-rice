@@ -30,6 +30,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Snippets
+zinit snippet OMZL::key-bindings.zsh
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
@@ -43,7 +44,9 @@ zinit cdreplay -q
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-bindkey '^[w' kill-region
+bindkey '^H' backward-kill-word
+autoload -U select-word-style
+select-word-style bash
 
 # ============================
 # History
