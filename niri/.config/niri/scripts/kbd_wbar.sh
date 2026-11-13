@@ -2,6 +2,9 @@
 
 pkill kanata
 
+# kanata only logs layer changes after the first switch, so seed the initial layer
+echo base > /tmp/kanata_layer
+
 pkill waybar; waybar &
 
 ~/.cargo/bin/kanata -c ~/.config/niri/keymaps/full.kbd --nodelay 2>&1 \

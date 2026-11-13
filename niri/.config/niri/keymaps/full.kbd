@@ -1,5 +1,12 @@
 (defcfg
     process-unmapped-keys yes
+    ;; The 2.4G receiver's "Consumer Control" interface reports KEY_MUTE as
+    ;; permanently held, which makes kanata busy-wait (100% CPU) at startup and
+    ;; never finish registering devices. Don't grab that interface.
+    linux-dev-names-exclude "2.4G Consumer Control"
+    ;; Needed by waybar's custom/kanata-layer module: without this kanata never
+    ;; prints "(deflayer <name> ...)" so /tmp/kanata_layer is never written.
+    log-layer-changes yes
 )
 
 (defsrc
@@ -8,6 +15,10 @@
     caps      a    s    d    f    g    h    j    k    l    ;    '    enter
     lsft      z    x    c    v    b    n    m    ,    .    /    rsft
     lctl      lmet lalt          spc             ralt rctl
+)
+
+(defvirtualkeys
+    v_slck slck
 )
 
 (defvar
@@ -20,6 +31,7 @@
 )
 
 (defalias
+    dict (multi (on-press tap-vkey v_slck) (on-release tap-vkey v_slck))
     !  S-1
     @  S-2
     #  S-3
@@ -58,9 +70,9 @@
 
 (deflayer numb
     esc
-    tab       q     w     e     r     t     y     7     8     9     =     [    ]
-    @caps     a     s     d     f     g     h     4     5     6     +     '    enter
-    lsft      z     x     c     v     b     0     1     2     3     /     rsft
+    tab       q     w     e     r     t     y     kp7   kp8   kp9   kp=   [    ]
+    @caps     a     s     d     f     g     h     kp4   kp5   kp6   kp+   '    enter
+    lsft      z     x     c     v     b     kp0   kp1   kp2   kp3   kp.   rsft
     @lctl     lmet  lalt           @spc           @bse rctl
 )
 
@@ -84,7 +96,7 @@
     esc
     tab       q     w     e     r     t     y     u     i     o     p     [    ]
     @caps     a     s     @d    @f    g     🔅    🔉    🔊    🔆    ;     '    enter
-    lsft      z     x     c     v     b     n     🔇     ,     .     /     rsft
+    lsft      z     x     c     v     @dict @dict 🔇     ,     .     /     rsft
     @lctl     lmet  lalt           @spc           @ralt rctl
 )
 

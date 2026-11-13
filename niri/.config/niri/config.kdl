@@ -370,9 +370,10 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
 
-    Mod+Return hotkey-overlay-title="Open terminal: Ghostty" { spawn "wezterm"; }
-    Mod+Shift+D { spawn "dolphin"; }
-    Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --show drun"; }
+    Mod+Return hotkey-overlay-title="Open terminal: Wezterm" { spawn "wezterm" "start" "--always-new-process"; }
+    Mod+D { spawn-sh "vicinae open"; }
+    Mod+G hotkey-overlay-title="Dictation: toggle" { spawn-sh "printf 't' | socat - UNIX-CONNECT:/tmp/phemic_ctl.sock 2>/dev/null; whisrs toggle"; }
+    // Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --show drun"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Space hotkey-overlay-title="refresh things" { spawn "~/.config/niri/scripts/refresh.sh"; }
